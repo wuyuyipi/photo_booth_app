@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,
+body {
+  height: 100%;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ff2a85;
+  color: #000000;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  overscroll-behavior: none;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Safe area padding utilities */
+.pt-safe {
+  padding-top: max(12px, env(safe-area-inset-top, 0px));
+}
+
+.pb-safe {
+  padding-bottom: max(16px, env(safe-area-inset-bottom, 0px));
+}
+
+.pl-safe {
+  padding-left: max(12px, env(safe-area-inset-left, 0px));
+}
+
+.pr-safe {
+  padding-right: max(12px, env(safe-area-inset-right, 0px));
+}
+
+.bottom-safe {
+  bottom: max(16px, env(safe-area-inset-bottom, 0px));
+}
+
+.top-safe {
+  top: max(12px, env(safe-area-inset-top, 0px));
+}
+
+/* Hide scrollbar for clean horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mirrored camera feed for natural selfie preview */
+.video-mirror {
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}
+
+/* Screen Flash Animation */
+@keyframes flash-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-flash {
+  animation: flash-fade 0.28s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+/* Countdown pop-in animation */
+@keyframes count-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  45% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.95;
+  }
+}
+
+.animate-count {
+  animation: count-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Y2K Wavy Lines Background SVG */
+.y2k-wavy-bg {
+  background-color: #f43f8e;
+  background-image: radial-gradient(circle at 10% 20%, rgba(255, 230, 0, 0.2) 0%, transparent 35%),
+    radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.25) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,30 Q30,10 60,30 T120,30 M0,70 Q30,50 60,70 T120,70 M0,110 Q30,90 60,110 T120,110' fill='none' stroke='rgba(255,255,255,0.28)' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: auto, auto, 120px 120px;
+}
+
+.y2k-wavy-cyan {
+  background-color: #00d2f0;
+  background-image: radial-gradient(circle at 80% 20%, rgba(255, 42, 133, 0.25) 0%, transparent 35%),
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,30 Q30,10 60,30 T120,30 M0,70 Q30,50 60,70 T120,70 M0,110 Q30,90 60,110 T120,110' fill='none' stroke='rgba(255,255,255,0.32)' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: auto, 120px 120px;
+}
+
+.y2k-wavy-purple {
+  background-color: #7c3aed;
+  background-image: radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.3) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,30 Q30,10 60,30 T120,30 M0,70 Q30,50 60,70 T120,70 M0,110 Q30,90 60,110 T120,110' fill='none' stroke='rgba(255,255,255,0.25)' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: auto, 120px 120px;
+}
+
+/* Y2K Hard Offset Shadows */
+.shadow-y2k {
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.shadow-y2k-sm {
+  box-shadow: 2.5px 2.5px 0px #000000;
+}
+
+.shadow-y2k-lg {
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.shadow-y2k-pink {
+  box-shadow: 4px 4px 0px #ff007f;
+}
+
+/* Button Press Tactile Feel */
+.btn-y2k {
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-y2k:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1.5px 1.5px 0px #000000;
 }
