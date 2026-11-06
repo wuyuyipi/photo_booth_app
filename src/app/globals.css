@@ -10,6 +10,9 @@
 html,
 body {
   height: 100%;
+  height: -webkit-fill-available;
+  min-height: 100%;
+  min-height: -webkit-fill-available;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -26,11 +29,11 @@ body {
 
 /* Safe area padding utilities with dedicated clearance for iOS webapp mode */
 .pt-safe {
-  padding-top: max(16px, calc(env(safe-area-inset-top, 0px) + 16px));
+  padding-top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px));
 }
 
 .pb-safe {
-  padding-bottom: max(18px, calc(env(safe-area-inset-bottom, 0px) + 16px));
+  padding-bottom: max(12px, calc(env(safe-area-inset-bottom, 0px) + 6px));
 }
 
 .pl-safe {
@@ -42,11 +45,11 @@ body {
 }
 
 .bottom-safe {
-  bottom: max(16px, calc(env(safe-area-inset-bottom, 0px) + 16px));
+  bottom: max(12px, calc(env(safe-area-inset-bottom, 0px) + 6px));
 }
 
 .top-safe {
-  top: max(16px, calc(env(safe-area-inset-top, 0px) + 16px));
+  top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px));
 }
 
 /* Hide scrollbar for clean horizontal carousels */
@@ -102,13 +105,14 @@ body {
   animation: count-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Y2K Wavy Lines Background SVG */
+/* Y2K Wavy Lines Background SVG - hot pink base matching theme */
 .y2k-wavy-bg {
-  background-color: #f43f8e;
-  background-image: radial-gradient(circle at 10% 20%, rgba(255, 230, 0, 0.2) 0%, transparent 35%),
-    radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.25) 0%, transparent 40%),
+  background-color: #ff2a85;
+  background-image: radial-gradient(circle at 10% 20%, rgba(255, 230, 0, 0.22) 0%, transparent 35%),
+    radial-gradient(circle at 90% 80%, rgba(0, 229, 255, 0.28) 0%, transparent 40%),
     url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,30 Q30,10 60,30 T120,30 M0,70 Q30,50 60,70 T120,70 M0,110 Q30,90 60,110 T120,110' fill='none' stroke='rgba(255,255,255,0.28)' stroke-width='2'/%3E%3C/svg%3E");
   background-size: auto, auto, 120px 120px;
+  background-repeat: repeat;
 }
 
 .y2k-wavy-cyan {

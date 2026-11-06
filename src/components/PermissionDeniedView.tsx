@@ -14,7 +14,7 @@ export const PermissionDeniedView: React.FC<PermissionDeniedViewProps> = ({
   errorMessage,
 }) => {
   return (
-    <div className="relative flex flex-col items-center justify-between w-full h-full y2k-wavy-purple text-black px-4 pt-safe pb-safe select-none">
+    <div className="absolute inset-0 flex flex-col items-center justify-between w-full h-full y2k-wavy-purple text-black px-4 pt-safe pb-safe select-none">
       {/* Background Sparkles */}
       <div className="absolute top-10 left-5 pointer-events-none opacity-80">
         <StarSparkle size={24} color="#ffe600" />

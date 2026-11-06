@@ -459,7 +459,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
   };
 
   return (
-    <div className="relative w-full h-full y2k-wavy-bg flex flex-col justify-between overflow-hidden select-none px-2 sm:px-4">
+    <div className="absolute inset-0 w-full h-full y2k-wavy-bg flex flex-col justify-between overflow-hidden select-none px-2 sm:px-4">
       {/* Background Decorative Sparkles */}
       <div className="absolute top-20 left-4 pointer-events-none opacity-80 animate-pulse">
         <StarSparkle size={26} color="#ffe600" />

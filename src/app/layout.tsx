@@ -40,14 +40,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className="h-full w-full antialiased y2k-wavy-bg">
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Y2K Booth" />
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       </head>
-      <body className="h-full w-full overflow-hidden select-none bg-[#ff2a85]">
+      <body className="h-full w-full overflow-hidden select-none bg-[#ff2a85] y2k-wavy-bg">
         {children}
         {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
