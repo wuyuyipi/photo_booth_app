@@ -34,7 +34,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-full w-full bg-[#ff2a85]">
+    <main className="fixed inset-0 w-full h-full overflow-hidden select-none bg-[#ff2a85]">
       {screen === "camera" && (
         <CameraView
           onCaptureComplete={handleCaptureComplete}

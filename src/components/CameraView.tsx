@@ -459,15 +459,15 @@ export const CameraView: React.FC<CameraViewProps> = ({
   };
 
   return (
-    <div className="relative h-[100dvh] w-full y2k-wavy-bg flex flex-col justify-between overflow-hidden select-none p-2 sm:p-4">
+    <div className="relative w-full h-full y2k-wavy-bg flex flex-col justify-between overflow-hidden select-none px-2 sm:px-4">
       {/* Background Decorative Sparkles */}
-      <div className="absolute top-12 left-4 pointer-events-none opacity-80 animate-pulse">
+      <div className="absolute top-20 left-4 pointer-events-none opacity-80 animate-pulse">
         <StarSparkle size={26} color="#ffe600" />
       </div>
-      <div className="absolute top-28 right-6 pointer-events-none opacity-80">
+      <div className="absolute top-36 right-6 pointer-events-none opacity-80">
         <StarSparkle size={32} color="#00e5ff" />
       </div>
-      <div className="absolute bottom-32 left-3 pointer-events-none opacity-80">
+      <div className="absolute bottom-36 left-3 pointer-events-none opacity-80">
         <StarSparkle size={22} color="#ffffff" />
       </div>
 
@@ -479,20 +479,20 @@ export const CameraView: React.FC<CameraViewProps> = ({
       {/* Top Section with Safe Area */}
       <div className="w-full pt-safe z-20 flex flex-col gap-2">
         {/* Top Header Bar: Speech Bubble & Action Buttons (Frames, Stickers & Filters) */}
-        <div className="w-full flex items-center justify-between px-1">
+        <div className="w-full max-w-md mx-auto flex items-center justify-between px-1">
           {/* Left: Cute Speech Bubble */}
-          <div className="flex items-center gap-1.5">
+          <div className="flex-shrink-0 flex items-center gap-1.5">
             <Y2KSpeechBubble text="Smile! :3" bg="#ffffff" />
           </div>
 
           {/* Right: Frames, Stickers & Filters Buttons */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex-shrink-0 flex items-center gap-1 sm:gap-2">
             {/* Frames Button */}
             <button
               onClick={handleToggleFramePicker}
               disabled={isShooting}
               type="button"
-              className={`btn-y2k flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-[2.5px] border-black shadow-y2k font-black text-xs uppercase tracking-wider ${
+              className={`btn-y2k flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-xl border-[2.5px] border-black shadow-y2k font-black text-[11px] sm:text-xs uppercase tracking-tight sm:tracking-wider ${
                 showFramePicker
                   ? "bg-[#6366f1] text-white"
                   : selectedFrameId !== "none"
@@ -510,7 +510,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
               onClick={handleToggleStickerPicker}
               disabled={isShooting}
               type="button"
-              className={`btn-y2k flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-[2.5px] border-black shadow-y2k font-black text-xs uppercase tracking-wider ${
+              className={`btn-y2k flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-xl border-[2.5px] border-black shadow-y2k font-black text-[11px] sm:text-xs uppercase tracking-tight sm:tracking-wider ${
                 showStickerPicker
                   ? "bg-[#ff2a85] text-white"
                   : placedStickers.length > 0
@@ -533,7 +533,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
               onClick={handleToggleFilterPicker}
               disabled={isShooting}
               type="button"
-              className={`btn-y2k flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-[2.5px] border-black shadow-y2k font-black text-xs uppercase tracking-wider ${
+              className={`btn-y2k flex items-center gap-1 sm:gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-xl border-[2.5px] border-black shadow-y2k font-black text-[11px] sm:text-xs uppercase tracking-tight sm:tracking-wider ${
                 showFilterPicker
                   ? "bg-[#00e5ff] text-black"
                   : activeFilter.id !== "none"
@@ -550,7 +550,7 @@ export const CameraView: React.FC<CameraViewProps> = ({
       </div>
 
       {/* Center: Main Camera Window (Retro OS 95/98 Window style) */}
-      <div className="relative flex-1 w-full max-w-md mx-auto my-1.5 flex flex-col rounded-2xl border-[3.5px] border-black bg-white shadow-y2k-lg overflow-hidden z-10">
+      <div className="relative flex-1 w-full max-w-md mx-auto my-2 flex flex-col rounded-2xl border-[3.5px] border-black bg-white shadow-y2k-lg overflow-hidden z-10">
         {/* Retro Window Header */}
         <Y2KWindowHeader
           title="photobooth.exe [live_cam]"

@@ -121,7 +121,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ photos, onRetake }) =>
   };
 
   return (
-    <div className="relative h-[100dvh] w-full y2k-wavy-cyan flex flex-col justify-between overflow-hidden select-none p-2 sm:p-4">
+    <div className="relative w-full h-full y2k-wavy-cyan flex flex-col justify-between overflow-hidden select-none px-2 sm:px-4">
       {/* Background Sparkles */}
       <div className="absolute top-14 left-4 pointer-events-none opacity-80">
         <StarSparkle size={24} color="#ffe600" />
